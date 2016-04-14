@@ -36,7 +36,6 @@ public class Tree
 
     }
 
-
     public Node search(int value)
     {
         Node currentNode = root;
@@ -84,7 +83,6 @@ public class Tree
 
     }
 
-
     public void insert(int value, Node fromNode)
     {
         if (root == null)
@@ -104,6 +102,7 @@ public class Tree
             {
                 fromNode.rightNode = new Node();
                 fromNode.rightNode.value = value;
+                return;
             }
         } else
         {
@@ -114,10 +113,10 @@ public class Tree
             {
                 fromNode.leftNode = new Node();
                 fromNode.leftNode.value = value;
+                return;
             }
         }
     }
-
 
     public void insert(int value)
     {
@@ -173,7 +172,6 @@ public class Tree
         return currentNode;
     }
 
-
     public Node minValue(Node node)
     {
 
@@ -186,11 +184,6 @@ public class Tree
 
     }
 
-
-
-
-
-
     public Node maxValue()
     {
         Node currentNode = root;
@@ -202,7 +195,6 @@ public class Tree
 
         return currentNode;
     }
-
 
     public Node maxValue(Node node)
     {

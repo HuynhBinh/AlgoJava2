@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args)
     {
 
-        Tree tree = new Tree();
+        AVLTree tree = new AVLTree();
         /*tree.insert(15, tree.root);
         tree.insert(7, tree.root);
         tree.insert(23, tree.root);
@@ -13,18 +13,25 @@ public class Main {
         tree.insert(17, tree.root);
         tree.insert(13, tree.root);
         tree.insert(99, tree.root);*/
-        tree.insert(15);
-        tree.insert(7);
-        tree.insert(23);
+        tree.insert(1);
+        tree.insert(2);
+        tree.insert(3);
+        tree.insert(4);
+        tree.insert(5);
         tree.insert(6);
-        tree.insert(17);
-        tree.insert(13);
-        tree.insert(99);
+        tree.insert(7);
+        tree.insert(8);
+        tree.insert(9);
+        tree.insert(10);
+
+        System.out.println(tree.rootAbove.leftNode.getBalance());
+
+        tree.inOrder(tree.rootAbove.leftNode);
 
 
-        tree.postOrder(tree.root);
+        //tree.postOrder(tree.root);
 
-        System.out.println("Min: " + tree.minValue().value);
+        /*System.out.println("Min: " + tree.minValue().value);
         System.out.println("Max: " + tree.maxValue().value);
 
 
@@ -50,7 +57,7 @@ public class Main {
         else
         {
             System.out.println("Cannot find");
-        }
+        }*/
 
     }
 }
