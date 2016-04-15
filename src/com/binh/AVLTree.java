@@ -170,4 +170,132 @@ public class AVLTree {
     }
 
 
+    public AVLNode findSuccessor(AVLNode root)
+    {
+        AVLNode temp;
+        AVLNode parent;
+
+        temp = root;
+
+        boolean direction;
+
+        if(temp.getBalance() > 0)
+        {
+            direction = true;
+        }
+        else
+        {
+            direction = false;
+        }
+
+        parent = temp;
+
+        if(direction == true)
+        {
+            temp = parent.rightNode;
+        }
+        else
+        {
+            temp = parent.leftNode;
+        }
+
+        if(temp == null)
+            return temp;
+
+
+
+        while ((temp.rightNode != null && direction == false) || (temp.leftNode != null && direction == true))
+        {
+            parent = temp;
+
+            if(direction == true)
+            {
+                temp = parent.leftNode;
+            }
+            else
+            {
+                temp = parent.rightNode;
+            }
+        }
+
+        if(temp == parent.leftNode)
+        {
+            parent.leftNode = temp.rightNode;
+            temp.rightNode = null;
+        }
+        else // temp = parent.rightNode
+        {
+            parent.rightNode = temp.leftNode;
+            temp.leftNode = null;
+
+        }
+
+        return temp;
+    }
+
+    public void remove(int value, AVLNode temp)
+    {
+
+        AVLNode child;
+
+        if(temp == null)
+            return;
+
+        boolean direction;
+
+        if(value > temp.value)
+        {
+            direction = true;
+        }
+        else
+        {
+            direction = false;
+        }
+
+        if(direction == true)
+        {
+            child = temp.rightNode;
+        }
+        else
+        {
+            child = temp.leftNode;
+
+        }
+
+        if(child == null)
+        {
+            return;
+        }
+
+        if(temp == rootAbove && child.getBalance() == 0 && child.value == value)
+        {
+            AVLNode newRoot = child.leftNode;
+
+            if(newRoot == null)
+            {
+                rootAbove.leftNode = null;
+                return;
+            }
+            else
+            {
+                enactRemoval(temp, child, false);
+            }
+        }
+        else if(value == child.value)
+        {
+            enactRemoval(temp, child, direction);
+        }
+        else
+        {
+            remove(value, child);
+        }
+    }
+
+
+    private void enactRemoval(AVLNode parent, AVLNode remove, boolean direction)
+    {
+        //code
+    }
+
+
 }

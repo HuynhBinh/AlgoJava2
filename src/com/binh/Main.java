@@ -13,20 +13,22 @@ public class Main {
         tree.insert(17, tree.root);
         tree.insert(13, tree.root);
         tree.insert(99, tree.root);*/
-        tree.insert(1);
-        tree.insert(2);
-        tree.insert(3);
-        tree.insert(4);
-        tree.insert(5);
-        tree.insert(6);
-        tree.insert(7);
-        tree.insert(8);
-        tree.insert(9);
-        tree.insert(10);
+        tree.insert(60);
+        tree.insert(54);
+        tree.insert(66);
+        tree.insert(51);
+        tree.insert(57);
+        tree.insert(70);
+        tree.insert(55);
+
 
         System.out.println(tree.rootAbove.leftNode.getBalance());
 
         tree.inOrder(tree.rootAbove.leftNode);
+
+        AVLNode successor = tree.findSuccessor(tree.rootAbove.leftNode);
+
+        System.out.println("Successor: " + successor.value);
 
 
         //tree.postOrder(tree.root);
